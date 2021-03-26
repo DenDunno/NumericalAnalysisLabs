@@ -25,10 +25,10 @@ int main()
 {
 	Matrix matrix
 	{
-		{7 , 2 , 3 , 0 , 20} ,
-		{0 , 3 , 2 , 6 , 36} ,
-		{2 , 5 , 1 , 0 , 15} ,
-		{0 , 1 , 4 , 2 , 22} ,
+		{7 , 2 , 3 , 0 , 32} ,
+		{0 , 3 , 2 , 6 , 47} ,
+		{2 , 5 , 1 , 0 , 23} ,
+		{0 , 1 , 4 , 2 , 29} ,
 	};
 	
 	ShowMatrix(matrix);
@@ -40,8 +40,8 @@ int main()
 	auto answer = SolveSystemOfLinearEquations(matrix);
 
 	cout << endl << endl;
-	for (int i = 0; i < answer.size(); ++i)
-		cout << answer[i] << "    ";
+	for (int i = answer.size() - 1, j = 1; i >= 0; --i, j++)
+		cout << 'x' << j << " = " << answer[i] << endl;
 }
 
 
