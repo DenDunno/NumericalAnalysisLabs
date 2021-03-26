@@ -15,9 +15,10 @@ using namespace std;
 
 typedef vector<vector<float>> Matrix;
 
-void SetTriangleForm(Matrix& matrix);
 void ShowMatrix(Matrix& matrix);
 
+void SetTriangleForm(Matrix& matrix);
+vector<float> SolveSystemOfLinearEquations(Matrix& matrix);
 
 
 int main()
@@ -25,18 +26,39 @@ int main()
 	Matrix matrix
 	{
 		{7 , 2 , 3 , 0 , 20} ,
-		{1 , 3 , 2 , 6 , 36} ,
+		{0 , 3 , 2 , 6 , 36} ,
 		{2 , 5 , 1 , 0 , 15} ,
-		{1 , 1 , 4 , 2 , 22} ,
+		{0 , 1 , 4 , 2 , 22} ,
 	};
 	
 	ShowMatrix(matrix);
-
 	SetTriangleForm(matrix);
 
 	cout << endl << endl;
-
 	ShowMatrix(matrix);
+
+	auto answer = SolveSystemOfLinearEquations(matrix);
+
+	cout << endl << endl;
+	for (int i = 0; i < answer.size(); ++i)
+		cout << answer[i] << "    ";
+}
+
+
+void ShowMatrix(Matrix& matrix)
+{
+	cout << fixed;
+	cout.precision(2);
+
+	for (size_t i = 0; i < matrix.size(); ++i)
+	{
+		for (size_t j = 0; j < matrix[i].size(); ++j)
+		{
+			cout << matrix[i][j] << '\t';
+		}
+
+		cout << endl;
+	}
 }
 
 
@@ -59,19 +81,24 @@ void SetTriangleForm(Matrix& matrix)
 }
 
 
-
-void ShowMatrix(Matrix& matrix)
+vector<float> SolveSystemOfLinearEquations(Matrix& matrix)
 {
-	cout << fixed;
-	cout.precision(2);
+	const size_t SIZE = matrix.size();
 
-	for (size_t i = 0; i < matrix.size(); ++i)
+	vector<float> X;
+	X.push_back(matrix[SIZE - 1][SIZE] / matrix[SIZE - 1][SIZE - 1]);
+
+	for (int i = SIZE - 2; i >= 0; --i)
 	{
-		for (size_t j = 0; j < matrix[i].size(); ++j)
+		float sum = 0;
+
+		for (size_t j = 0; j < X.size(); ++j)
 		{
-			cout << matrix[i][j] << '\t';
+			sum += matrix[i][SIZE - 1 - j] * X[j];
 		}
 
-		cout << endl;
+		X.push_back((matrix[i][SIZE] - sum) / matrix[i][SIZE - 1 - X.size()]);
 	}
+
+	return X;
 }
