@@ -9,8 +9,8 @@ using namespace std;
 
 	7	2	3	0	    X1	     32
 	0	3	2	6	x   X2   =   47
-	2	5	1	0		X3		 23
-	0	1	4	2	    X4		 29
+	2	5	1	0		X3       23
+	0	1	4	2	    X4       29
 */
 
 typedef vector<vector<float>> Matrix;

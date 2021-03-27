@@ -6,10 +6,9 @@ using namespace std;
 /*
 	Solve 
 
-	1	2	0		X1		8
-	2	2	3	x	X2	=   21
-	0	3	2		X3		17
-
+	1	2	0		X1       8
+	2	2	3	x	X2   =   21
+	0	3	2		X3		 17
 */
 
 typedef vector<vector<float>> Matrix;
