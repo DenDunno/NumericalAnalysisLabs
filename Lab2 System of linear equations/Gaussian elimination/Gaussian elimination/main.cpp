@@ -7,10 +7,10 @@ using namespace std;
 /*
 	Solve
 
-	7	2	3	0	    Õ1	     20
-	0	3	2	6	õ   Õ2   =   36
-	2	5	1	0		Õ3		 15
-	0	1	4	2	    Õ4		 22
+	7	2	3	0	    Õ1	     32
+	0	3	2	6	õ   Õ2   =   47
+	2	5	1	0		Õ3		 23
+	0	1	4	2	    Õ4		 29
 */
 
 typedef vector<vector<float>> Matrix;
