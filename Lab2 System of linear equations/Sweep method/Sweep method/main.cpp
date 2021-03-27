@@ -6,9 +6,9 @@ using namespace std;
 /*
 	Solve 
 
-	1	2	0		’1		5
-	2	2	3	ı	’2	=	6
-	0	3	2		’3		12
+	1	2	0		’1		8
+	2	2	3	ı	’2	=	21
+	0	3	2		’3		17
 
 */
 
@@ -39,25 +39,22 @@ void ShowMatrix(Matrix& matrix);
 vector<float> SolveSystemOfLinearEquations(Matrix& matrix , —oefficients* coeff);
 
 
-
 int main()
 {	
 	Matrix matrix
 	{
-		{ 1  ,  2  ,  0  ,  5} ,
-		{ 2  ,  2  ,  3  ,  6} ,
-		{ 0  ,  3  ,  2  ,  12} ,
-		
+		{ 1  ,  2  ,  0  ,  8}  ,
+		{ 2  ,  2  ,  3  ,  21} ,
+		{ 0  ,  3  ,  2  ,  17} ,
 	};
 
 	ShowMatrix(matrix);
 
-	—oefficients* coeff = Get—oefficients(matrix);
+	—oefficients* coeff  = Get—oefficients(matrix);
 	vector<float> answer = SolveSystemOfLinearEquations(matrix, coeff);
 
-	
-
-	
+	for (int i = answer.size() - 1, j = 1; i >= 0; --i, ++j)
+		cout << "x" << j << "  =  " << answer[i] << endl;
 }
 
 
