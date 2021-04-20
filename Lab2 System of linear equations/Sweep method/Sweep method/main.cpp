@@ -42,8 +42,8 @@ int main()
 {	
 	Matrix matrix
 	{
-		{ 1  ,  2  ,  0  ,  8}  ,
-		{ 2  ,  2  ,  3  ,  21} ,
+		{ 2  ,  1  ,  0  ,  5}  ,
+		{ 1  ,  1  ,  3  ,  17} ,
 		{ 0  ,  3  ,  2  ,  17} ,
 	};
 
@@ -84,8 +84,10 @@ void ShowMatrix(Matrix& matrix)
 
 	for (size_t i = 1 ; i < SIZE - 1; ++i)
 	{
-		coeff->a[i] = matrix[i][i + 1] / z;
-		coeff->b[i] = (-matrix[i][SIZE] + matrix[i][i - 1] * coeff->b[i - 1]) / z;
+		double a = matrix[i][i + 1] / z;;
+		double b = (-matrix[i][SIZE] + matrix[i][i - 1] * coeff->b[i - 1]) / z;
+		coeff->a[i] = a;
+		coeff->b[i] = b;
 	}
 
 	return coeff;
