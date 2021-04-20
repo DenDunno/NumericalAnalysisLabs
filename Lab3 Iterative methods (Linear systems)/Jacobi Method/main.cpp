@@ -16,9 +16,9 @@ using namespace std;
 
 typedef vector<vector<double>> Matrix;
 
-void ShowMatrix(Matrix& matrix);
-double GetQ(Matrix& matrix);
-vector<double> SolveLinearSystems(Matrix& matrix , int numOfIterations);
+void ShowMatrix(const Matrix& matrix);
+double GetQ(const Matrix& matrix);
+vector<double> SolveLinearSystems(const Matrix& matrix , int numOfIterations);
 
 
 int main()
@@ -51,7 +51,7 @@ int main()
 }
 
 
-void ShowMatrix(Matrix& matrix)
+void ShowMatrix(const Matrix& matrix)
 {
 	for (size_t i = 0; i < matrix.size(); ++i)
 	{
@@ -67,7 +67,7 @@ void ShowMatrix(Matrix& matrix)
 }
 
 
-double GetQ(Matrix& matrix)
+double GetQ(const Matrix& matrix)
 {
 	vector<double> vec_q;
 	vector<double> sums;
@@ -92,7 +92,7 @@ double GetQ(Matrix& matrix)
 }
 
 
-vector<double> SolveLinearSystems(Matrix& matrix, int numOfIterations)
+vector<double> SolveLinearSystems(const Matrix& matrix, int numOfIterations)
 {
 	vector<double> startX(matrix.size(), 0);
 	vector<double> answer(matrix.size() , 0);
