@@ -4,6 +4,15 @@
 #include <algorithm>
 using namespace std;
 
+/*
+    Solve by Seidel method , epsilon = 1e-3
+
+    6  3  1  0     X1  =  15
+    3  5  0  2  x  X2  =  21
+    1  0  3  1     X3  =  14
+    0  2  1  5     X4  =  27
+*/
+
 typedef vector<vector<double>> Matrix;
 
 void ShowMatrix(const Matrix& matrix);
