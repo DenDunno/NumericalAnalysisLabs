@@ -16,6 +16,8 @@ typedef vector<vector<double>> Matrix;
 typedef vector<double> Vector;
 
 double GetMaxEigenValue(const Matrix& matrix, const double EPSILON);
+Vector operator*(const Matrix& matrix, const Vector& vec);
+double DotProduct(const Vector& vec1, const Vector& vec2);
 
 
 int main()
@@ -31,6 +33,30 @@ int main()
     auto answer = GetMaxEigenValue(MATRIX , EPSILON);
 
     cout << answer << endl;
+}
+
+
+double GetMaxEigenValue(const Matrix& matrix, const double epsilon)
+{
+    Vector Xn(matrix.size(), 1);
+    Vector Xn1(matrix.size());
+
+    double answer = 0;
+    double answerPrev = 0;
+
+    do
+    {
+        Xn1 = matrix * Xn;
+
+        answerPrev = answer;
+
+        answer = DotProduct(Xn, Xn1) / DotProduct(Xn, Xn);
+
+        Xn = Xn1;
+
+    } while ((fabs(answer - answerPrev)) > epsilon);
+
+    return answer;
 }
 
 
@@ -63,25 +89,4 @@ double DotProduct(const Vector& vec1, const Vector& vec2)
 }
 
 
-double GetMaxEigenValue(const Matrix& matrix , const double epsilon)
-{
-    Vector Xn(matrix.size(), 1);
-    Vector Xn1(matrix.size());
 
-    double answer = 0;
-    double answerPrev = 0;
-
-    do
-    {
-        Xn1 = matrix * Xn;
-
-        answerPrev = answer;
-
-        answer = DotProduct(Xn, Xn1) / DotProduct(Xn, Xn);
-
-        Xn = Xn1;
-
-    } while ((fabs(answer - answerPrev)) > epsilon);
-
-    return answer;
-}

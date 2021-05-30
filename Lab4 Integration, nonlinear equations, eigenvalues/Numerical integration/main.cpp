@@ -1,7 +1,6 @@
 #include <iostream>
 #include <cmath>
 #include <vector>
-
 using namespace std;
 
 // Problem: Integrate 2x^4 + 2x^2 from 0 to 1
