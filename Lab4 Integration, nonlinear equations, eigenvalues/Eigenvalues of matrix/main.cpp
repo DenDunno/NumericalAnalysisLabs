@@ -25,9 +25,9 @@ int main()
     const double EPSILON = 0.001;
     const Matrix MATRIX =
     {
-        {3.1 , 1.0 , 2.1 },
-        {1.0 , 3.6 , 2.1 },
-        {2.1 , 2.1 , 4.1}
+        {1 , 2 , 3 },
+        {2 , 3 , 4 },
+        {3 , 4 , 5}
     };
 
     auto answer = GetMaxEigenValue(MATRIX , EPSILON);
@@ -51,7 +51,7 @@ double GetMaxEigenValue(const Matrix& matrix, const double epsilon)
         answerPrev = answer;
 
         answer = DotProduct(Xn, Xn1) / DotProduct(Xn, Xn);
-
+        
         Xn = Xn1;
 
     } while ((fabs(answer - answerPrev)) > epsilon);
