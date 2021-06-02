@@ -17,7 +17,7 @@ int main()
 
 	auto answer = IntegrateFunction(A , B , EPSILON);
 
-	cout << answer << endl;
+	cout << "Integral = " << answer << endl;
 
 	return 0;
 }

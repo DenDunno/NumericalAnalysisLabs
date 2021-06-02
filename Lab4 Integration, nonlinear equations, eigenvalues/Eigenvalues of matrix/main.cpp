@@ -32,7 +32,7 @@ int main()
 
     auto answer = GetMaxEigenValue(MATRIX , EPSILON);
 
-    cout << answer << endl;
+    cout << "Max eigenvalue = " << answer << endl;
 }
 
 
